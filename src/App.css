@@ -1,0 +1,12 @@
+.GrapesJsApp {
+  background-color: black;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
