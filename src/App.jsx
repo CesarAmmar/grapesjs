@@ -2,22 +2,33 @@ import grapesjs from "grapesjs";
 import { useEffect, useRef, useState } from "react";
 import "grapesjs/dist/css/grapes.min.css";
 import "./App.css";
-import customPlugins from "./CustomPlugins";
-
+import { addPlugin } from "./plugins/AddPlugin";
+import { pluginsData } from "./plugins/plugins";
 export default function App() {
   const [editor, setEditor] = useState(null);
   const editorRef = useRef(null);
 
   useEffect(() => {
-    if (!editorRef.current) {
-      const editorInstance = grapesjs.init({
-        container: "#gjs",
-        plugins: [customPlugins],
-      });
-
-      editorRef.current = editorInstance;
-      setEditor(editorInstance);
+    async function setupEditor() {
+      try {
+        if (!editorRef.current) {
+          const editorInstance = grapesjs.init({
+            container: "#gjs",
+            plugins: [
+              (editor) => {
+                pluginsData.forEach((plugin) => addPlugin(editor, plugin));
+              },
+            ],
+          });
+          editorRef.current = editorInstance;
+          setEditor(editorInstance);
+        }
+      } catch (error) {
+        console.error("Error loading plugins:", error);
+      }
     }
+
+    setupEditor();
   }, []);
 
   const getOutput = () => {
