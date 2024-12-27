@@ -7,10 +7,10 @@ import { pluginsData } from "./plugins/plugins";
 import { apiPluginsData } from "./plugins/apiPluginsData";
 
 const HTML_TEMPLATE = `
-<body id="iawz"><div id="i0m9" class="hardware-discovery"><p>hardware-discovery Section</p></div></body>
+<body id="ipit"><div id="i0m9" title="Hardware Discovery" memory columns_1735216538755="1-pseudoColumn" columns_1735216538756="1-customField" class="hardware-discovery"><p>hardware-discovery Section</p></div><div id="iwa1" memory columns_1735295741498="1-pseudoColumn" class="hardware-discovery"><p>hardware-discovery Section</p></div></body>
 `;
 const CSS_TEMPLATE = `
-* { box-sizing: border-box; } body {margin: 0;}#i0m9{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:100px;margin:10px;border:1px solid black;}
+* { box-sizing: border-box; } body {margin: 0;}*{box-sizing:border-box;}body{margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;}*{box-sizing:border-box;}body{margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;}*{box-sizing:border-box;}body{margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;}#i0m9{display:flex;flex-direction:column;justify-content:center;align-items:center;padding-top:100px;padding-right:100px;padding-bottom:100px;padding-left:100px;margin-top:10px;margin-right:10px;margin-bottom:10px;margin-left:10px;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-top-style:solid;border-right-style:solid;border-bottom-style:solid;border-left-style:solid;border-top-color:black;border-right-color:black;border-bottom-color:black;border-left-color:black;border-image-source:initial;border-image-slice:initial;border-image-width:initial;border-image-outset:initial;border-image-repeat:initial;}#iwa1{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:100px;margin:10px;border:1px solid black;}
 `;
 
 export default function App() {
@@ -31,11 +31,9 @@ export default function App() {
             storageManager: false,
           });
 
-          // Load the saved template
           editorInstance.setComponents(HTML_TEMPLATE);
           editorInstance.setStyle(CSS_TEMPLATE);
 
-          // Reapply custom traits to loaded components
           reapplyCustomTraits(editorInstance);
 
           editorRef.current = editorInstance;

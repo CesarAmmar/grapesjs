@@ -75,8 +75,6 @@ export const addPlugin = (editor, pluginData) => {
       ]);
 
       selected.set("traits", traits);
-
-      console.log("New select added:", selectName);
     } else {
       console.warn("No component selected to add a trait!");
     }
